@@ -3,6 +3,9 @@
 #include <iostream>
 
 #include <string>
+#include <iostream>
+#include <sstream>
+
 
 #include <set>
 
@@ -295,29 +298,33 @@ bool isRoyalFamily(const std::string & name) {
   return query.next_solution();
 }
 
-int main(int argc, char * argv[]) {
-  PlEngine e(argv[0]);
+template<typename T>
+std::string ToString(const T& v)
+{
+    std::ostringstream ss;
+    ss << v;
+    return ss.str();
+}
 
+template<typename T>
+T FromString(const std::string& str)
+{
+    std::istringstream ss(str);
+    T ret;
+    ss >> ret;
+    return ret;
+}
+
+int main(int argc, char * argv[]) {
+
+  PlEngine e(argv[0]);
   createFacts();
 
-  int opcion;
-  string nombre1, nombre2;
-  bool salir = false;
-
-  do {
-    cout << "Menú:" << endl;
-    cout << "1. Consultar si es o fue monarca" << endl;
-    cout << "2. Consultar si es hijo/a único/a" << endl;
-    cout << "3. Consultar si es o fue Rey" << endl;
-    cout << "4. Consultar si es o fue Reina" << endl;
-    cout << "5. Salir" << endl;
-    cout << "Ingrese su opción: ";
-    cin >> opcion;
+  int opcion = FromString<int>(argv[1]);
+  string nombre1 = argv[2];
 
     switch (opcion) {
     case 1:
-      cout << "Ingrese el nombre a verificar: ";
-      cin >> nombre1;
       if (isRoyalFamily(nombre1)) {
         if (isMonarch(nombre1)) {
           cout << nombre1 << " es/fue  monarca." << endl;
@@ -330,8 +337,6 @@ int main(int argc, char * argv[]) {
       }
       break;
     case 2:
-      cout << "Ingrese el nombre a verificar: ";
-      cin >> nombre1;
       if (isRoyalFamily(nombre1)) {
 
         if (isOnlyChild(nombre1)) {
@@ -345,8 +350,6 @@ int main(int argc, char * argv[]) {
       }
       break;
     case 3:
-      cout << "Ingrese el nombre a verificar: ";
-      cin >> nombre1;
       if (isRoyalFamily(nombre1)) {
         if (isKing(nombre1)) {
           cout << nombre1 << " es/fue Rey." << endl;
@@ -358,8 +361,6 @@ int main(int argc, char * argv[]) {
       }
       break;
     case 4:
-      cout << "Ingrese el nombre a verificar: ";
-      cin >> nombre1;
       if (isRoyalFamily(nombre1)) {
         if (isQueen(nombre1)) {
           cout << nombre1 << " es/fue Reina." << endl;
@@ -370,14 +371,10 @@ int main(int argc, char * argv[]) {
         cout << nombre1 << " no es miembro de la Familia Real" << endl;
       }
       break;
-    case 5:
-      salir = true;
-      break;
     default:
       cout << "Opción inválida. Por favor ingrese un número entre 1 y 4." << endl;
     }
-  }
-  while (!salir);
+
 
   return 0;
 }
