@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <span><a href="http://localhost:4200">Atras</a></span>
+  <h1>¿Es hijo único?</h1>
+  <input type="text" placeholder="Nombre" id="name-input">
+  <button onclick="search()">Buscar</button>
+  <h2 id="resultado-title" style="display: none">Resultado</h2>
+  <p id="resultado-body"></p>
+  <script src="js/app.js"></script>
+
+</body>
+
+<script>
+let resultadoTitle = document.getElementById('resultado-title');
+let resultadoCuerpo = document.getElementById('resultado-body');
+let nameInput = document.getElementById('name-imput')
+
+function search(){
+  nameInput = document.getElementById('name-input')
+  name = nameInput.value
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", `http://localhost:5000/is-only-child/${name}`);
+  xhr.send();
+  xhr.responseType = "json";
+  xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const data = xhr.response;
+      resultadoTitle.style.display = 'Block';
+      resultadoCuerpo.innerText = data.result;
+    } else {
+      console.log(`Error: ${xhr.status}`);
+    }
+  };
+}
+
+
+</script>
+
+</html>
