@@ -178,3 +178,39 @@ Mary of Teck es Monarca
 Victoria Alexandra es Monarca 
 Margaret Rose es Monarca 
 ```
+
+
+## Ejemplo de uso
+### Consulta por Edward
+| Consulta      | Nombre | Resultado |
+|---------------|--------|------------|
+| Es Monarca    | Edward | Edward es/fue monarca.   |
+| Es hijo unico | Edward | Edward no es hijo/a único/a.  |
+| Ha sido Reina | Edward | Edward no es/fue Reina.   |
+| Ha sido Rey   | Edward | Edward no es es/fue Rey.   |
+
+### Consulta por Charles III
+| Consulta      | Nombre | Resultado                         |
+|---------------|--------|-----------------------------------|
+| Es Monarca    | Charles III | Charles III es/fue monarca.       |
+| Es hijo unico | Charles III | Charles III no es hijo/a único/a. |
+| Ha sido Reina | Charles III | Charles III no es/fue Reina.      |
+| Ha sido Rey   | Charles III | Charles III es/fue Rey.           |
+
+### Consulta por Harry Potter
+| Consulta      | Nombre | Resultado                        |
+|---------------|--------|----------------------------------|
+| Es Monarca    | Charles III | Harry Potter no es miembro de la Familia Real     |
+| Es hijo unico | Charles III | Harry Potter no es miembro de la Familia Real |
+| Ha sido Reina | Charles III | Harry Potter no es miembro de la Familia Real      |
+| Ha sido Rey   | Charles III | Harry Potter no es miembro de la Familia Real          |
+
+
+## Comparacion de lenguajes
+
+### Consulta por Harry Potter
+| Lenguaje    | Ventajas                                                       | Desventajas                                                                             |
+|-------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Prolog      | Una sintaxis clara y concisa. Cuenta con mucho soporte.        | Carece de funcionalidades nuevas e integracion con otras tecnologias                    |
+| C++         | Una sintaxis orientada a objetos. Cuenta con bastante soporte. | Requiere de un compilador. La configuracion puede ser complicada.                       |
+| Rust        | Tecnologia emergente. Alto rendimiento por bajo coste.         | No esta listo para produccion. Todavia le faltan muchas caracteristicas por implementar |
