@@ -1,0 +1,16 @@
+services:
+  ui:
+    container_name: UI-Layer
+    build: ./UI
+    ports:
+      - "80:80"
+    depends_on:
+      - flask
+    expose:
+      - 4200
+
+  flask:
+    container_name: Backend-Layer
+    build: ./backend
+    ports:
+      - "5000:5000"
