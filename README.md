@@ -18,6 +18,7 @@ Este sistema es una implementacion de Prolog en C++ utilizando SWI-CPP
 Antes de ejecutar esta aplicación, asegúrate de tener instalado lo siguiente:
 - **Docker**: Para instalar Docker, sigue las instrucciones en [Instalar Docker](https://docs.docker.com/get-docker/).
 - **Docker Compose**: Para instalar Docker Compose, sigue las instrucciones en [Instalar Docker Compose](https://docs.docker.com/compose/install/).
+-- **Linux Ubuntu 22.04**: Este sistema ha sido probado en Linux Ubuntu 22.04. Otros sistemas han mostrado problemas (MacOS y Windows.).
 
 ## Cómo ejecutar la aplicación
 Para poner en marcha la aplicación, sigue estos pasos:
@@ -33,7 +34,8 @@ Para poner en marcha la aplicación, sigue estos pasos:
 
 3. Haz un build del docker-compose. Puede durar alrededor de 1-2 minutos y cuando esté listo verás un output como el de abajo:
    ```bash
-     docker-compose up --build
+     Linux: $ docker compose up --build
+     Windows o Mac: Recomendamos no utilizar otro sistema que no sea Ubuntu Linux 22.04
      ...
      Backend-Layer  |  * Serving Flask app 'main'
      Backend-Layer  |  * Debug mode: on
